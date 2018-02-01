@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DS 202 - lab #2: exploring chocolates</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lab02_files/rmdshower/node_modules/shower-ribbon/styles/screen-4x3.css">
+  <link rel="stylesheet" href="lab02_files/rmdshower/style-common.css">
+  <link rel="stylesheet" href="lab02_files/rmdshower/style-ribbon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <script src="lab02_files/rmdshower/auto-render.min.js" type="text/javascript"></script>
+  
+  
+    <style type="text/css">
+   div.sourceCode { overflow-x: auto; }
+   table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+     margin: 0; padding: 0; vertical-align: baseline; border: none; }
+   table.sourceCode { width: 100%; line-height: 100%; }
+   td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+   td.sourceCode { padding-left: 5px; }
+   code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+   code > span.dt { color: #902000; } /* DataType */
+   code > span.dv { color: #40a070; } /* DecVal */
+   code > span.bn { color: #40a070; } /* BaseN */
+   code > span.fl { color: #40a070; } /* Float */
+   code > span.ch { color: #4070a0; } /* Char */
+   code > span.st { color: #4070a0; } /* String */
+   code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+   code > span.ot { color: #007020; } /* Other */
+   code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+   code > span.fu { color: #06287e; } /* Function */
+   code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+   code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+   code > span.cn { color: #880000; } /* Constant */
+   code > span.sc { color: #4070a0; } /* SpecialChar */
+   code > span.vs { color: #4070a0; } /* VerbatimString */
+   code > span.ss { color: #bb6688; } /* SpecialString */
+   code > span.im { } /* Import */
+   code > span.va { color: #19177c; } /* Variable */
+   code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+   code > span.op { color: #666666; } /* Operator */
+   code > span.bu { } /* BuiltIn */
+   code > span.ex { } /* Extension */
+   code > span.pp { color: #bc7a00; } /* Preprocessor */
+   code > span.at { color: #7d9029; } /* Attribute */
+   code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+   code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+   code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+   code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  
+  
+  
+</head>
+
+<body class="shower list">
+
+  <header class="caption">
+    <h1>DS 202 - lab #2: exploring chocolates</h1>
+    <p>Heike Hofmann</p>
+  </header>
+
+    
+  
+<section id="section" class="slide level2 white">
+<h2></h2>
+<p><img src="images/choco.jpeg" class="cover" height=1500></p>
+<p class="white" style="font-size:100px" align="center">
+Lab #2<br> chocolate tasting
+</p>
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li>Find your team members</li>
+<li>Create a repository (one per team) &amp; give access to everybody</li>
+<li>Do a data exploration (on chocolate ratings )</li>
+<li>Create an R markdown file that contains all code to read the data and create the plots</li>
+<li>Submit!</li>
+</ul>
+</section>
+<section id="find-your-team-members" class="titleslide slide level1"><h2 class="shout">Find your team members</h2></section><section id="github-repository" class="slide level2">
+<h2>github repository</h2>
+<ol type="1">
+<li>Log into github</li>
+<li>Pick one team member to create a repository called ‘lab2’</li>
+<li>Go into the settings of the repository and add your team members as collaborators</li>
+</ol>
+</section><section id="background" class="slide level2">
+<h2>Background</h2>
+<p>Brady Brelinski, Founding Member of the Manhattan Chocolate Society, obviously likes chocolate. He has assembled a database of ratings for plain dark chocolate bars:</p>
+<p><a href="http://flavorsofcacao.com/chocolate_database.html">Flavors of chocolate</a></p>
+<p>By now, over 1800 different chocolate bars have been rated.</p>
+</section><section id="meaning-of-ratings" class="slide level2">
+<h2>Meaning of ratings</h2>
+<p>Flavors of Cacao Rating System:</p>
+<ul>
+<li>5= Elite (Transcending beyond the ordinary limits)</li>
+<li>4= Premium (Superior flavor development, character and style)</li>
+<li>3= Satisfactory(3.0) to praiseworthy(3.75) (well made with special qualities)</li>
+<li>2= Disappointing (Passable but contains at least one significant flaw)</li>
+<li>1= Unpleasant (mostly unpalatable)</li>
+</ul>
+</section><section id="reading-data" class="slide level2">
+<h2>Reading data</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">choco &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/choco.csv&quot;</span>)</code></pre></div>
+<ul>
+<li>number of chocolates reviewed?</li>
+<li>barchart of year of review</li>
+<li>distribution of rating</li>
+<li>rating versus cocoa percent</li>
+<li>rating versus company location? varwidth</li>
+<li>number of reviewed chocolates from different companies?</li>
+<li>focus on top three countries. are there differences?</li>
+</ul>
+</section><section id="overview" class="slide level2">
+<h2>Overview</h2>
+<p>In this activity you are going to learn how to collaborate using Github. With your team members you will learn some basics which allow you to share and edit files on Github.</p>
+<ol type="1">
+<li>Create a git repository hosted at GitHub</li>
+<li>Build <code>README.md</code> file</li>
+<li>Commit changes to repository</li>
+<li>Collaborate by forking and editing partners file</li>
+<li>Explore Github features: graphs, diff, blame, ect.</li>
+</ol>
+</section><section id="reading-the-data" class="slide level2">
+<h2>Reading the data</h2>
+</section>
+<section id="were-almost-done" class="titleslide slide level1"><h2 class="shout">We’re (almost) done!</h2></section><section id="submission" class="slide level2">
+<h2>Submission</h2>
+<p>In Canvas, submit your (R) Markdown file with:</p>
+<ol type="a">
+<li>a table of team members, their github handle, the number of successful pull requests made, and the number of accepted pull requests</li>
+<li>a list with at least 3 tips of how to make working with git/github easier.</li>
+</ol>
+<p><strong>Note:</strong></p>
+<ol type="a">
+<li>make sure that none of the numbers in the above list are 0, i.e. each team member has to have at least one successful pull request made and accepted. Help out your team member in case they are stuck.</li>
+<li>you only need to make one submission per team.</li>
+</ol>
+<p>Due date: You have time until Monday at 10 pm to submit the (R) markdown file.</p>
+</section>
+
+  <!--
+  To hide progress bar from entire presentation
+  just remove “progress” element.
+  -->
+  <!-- <div class="progress"></div> -->
+  <script src="lab02_files/rmdshower/node_modules/shower/node_modules/shower-core/shower.min.js"></script>
+  <!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+  <!-- Photos by John Carey, fiftyfootshadows.net -->
+
+    <script>renderMathInElement(document.body);</script>
+  
+  
+</body>
+</html>
