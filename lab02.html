@@ -90,8 +90,7 @@ Lab #2<br> chocolate tasting
 </ol>
 </section><section id="background" class="slide level2">
 <h2>Background</h2>
-<p>Brady Brelinski, Founding Member of the Manhattan Chocolate Society, obviously likes chocolate. He has assembled a database of ratings for plain dark chocolate bars:</p>
-<p><a href="http://flavorsofcacao.com/chocolate_database.html">Flavors of chocolate</a></p>
+<p>Brady Brelinski, Founding Member of the Manhattan Chocolate Society, obviously likes chocolate. He has assembled a database of ratings for plain dark chocolate bars: <a href="http://flavorsofcacao.com/chocolate_database.html">Flavors of chocolate</a></p>
 <p>By now, over 1800 different chocolate bars have been rated.</p>
 </section><section id="meaning-of-ratings" class="slide level2">
 <h2>Meaning of ratings</h2>
@@ -103,44 +102,58 @@ Lab #2<br> chocolate tasting
 <li>2= Disappointing (Passable but contains at least one significant flaw)</li>
 <li>1= Unpleasant (mostly unpalatable)</li>
 </ul>
-</section><section id="reading-data" class="slide level2">
-<h2>Reading data</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">choco &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/choco.csv&quot;</span>)</code></pre></div>
-<ul>
-<li>number of chocolates reviewed?</li>
-<li>barchart of year of review</li>
-<li>distribution of rating</li>
-<li>rating versus cocoa percent</li>
-<li>rating versus company location? varwidth</li>
-<li>number of reviewed chocolates from different companies?</li>
-<li>focus on top three countries. are there differences?</li>
-</ul>
-</section><section id="overview" class="slide level2">
-<h2>Overview</h2>
-<p>In this activity you are going to learn how to collaborate using Github. With your team members you will learn some basics which allow you to share and edit files on Github.</p>
-<ol type="1">
-<li>Create a git repository hosted at GitHub</li>
-<li>Build <code>README.md</code> file</li>
-<li>Commit changes to repository</li>
-<li>Collaborate by forking and editing partners file</li>
-<li>Explore Github features: graphs, diff, blame, ect.</li>
-</ol>
 </section><section id="reading-the-data" class="slide level2">
 <h2>Reading the data</h2>
+<p>The file <code>choco.csv</code> at <a href="https://ds202-at-isu.github.io/labs/data/choco.csv" class="uri">https://ds202-at-isu.github.io/labs/data/choco.csv</a> is a web scraping from the chocolate flavor data base.</p>
+<p>You can load the data into your session using the command below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">choco &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://ds202-at-isu.github.io/labs/data/choco.csv&quot;</span>)
+<span class="kw">head</span>(choco)</code></pre></div>
+<pre><code>##    Company Specific.Bean.Origin  REF Review.Date Cocoa.Pct
+## 1 A. Morin          Agua Grande 1876        2016        63
+## 2 A. Morin                Kpime 1676        2015        70
+## 3 A. Morin               Panama 1011        2013        70
+## 4 A. Morin           Madagascar 1011        2013        70
+## 5 A. Morin               Brazil 1011        2013        70
+## 6 A. Morin             Equateur 1011        2013        70
+##   Company.Location Rating Bean.Type Broad.Bean.Origin
+## 1           France   3.75                    Sao Tome
+## 2           France   2.75                        Togo
+## 3           France   2.75                      Panama
+## 4           France   3.00   Criollo        Madagascar
+## 5           France   3.25                      Brazil
+## 6           France   3.75                     Ecuador</code></pre>
 </section>
-<section id="were-almost-done" class="titleslide slide level1"><h2 class="shout">We’re (almost) done!</h2></section><section id="submission" class="slide level2">
+<section id="a-data-exploration" class="titleslide slide level1"><h2 class="shout">A data exploration</h2></section><section id="question-set-team" class="slide level2">
+<h2>Question set (team)</h2>
+<p>Answer each of the following questions using R code to get an answer. When asked for a plot, use the <code>ggplot2</code> package.</p>
+<ol type="1">
+<li>What is the overall number of chocolate bars rated?</li>
+<li>How does the number of ratings depend on the year? Draw a bar chart of the number of reports.</li>
+<li>Upload your RMarkdown file to the repository</li>
+</ol>
+</section><section id="question-set-individual" class="slide level2">
+<h2>Question set (individual)</h2>
+<p>Download the RMarkdown file from the repository.</p>
+<ol start="3" type="1">
+<li>For each of the questions below provide at least one graphic as a basis for your answer.
+<ol type="1">
+<li>How are ratings distributed? Draw a histogram of ratings and describe it. Don’t forget to mention outliers, if there are any.</li>
+<li>Do ratings depend on the cocoa percentage of a chocolate bar?</li>
+<li>How do ratings compare across different company locations? Focus on the three locations with the most ratings:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">top3 &lt;-<span class="st"> </span>dplyr::<span class="kw">filter</span>(choco, Company.Location %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;U.S.A.&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Canada&quot;</span>))</code></pre></div></li>
+</ol>
+<p>Upload your answers to the repository. Discuss and refine answers as a team.</p>
+</section><section id="submission" class="slide level2">
 <h2>Submission</h2>
-<p>In Canvas, submit your (R) Markdown file with:</p>
+<p>In Canvas, submit an RMarkdown file with:</p>
 <ol type="a">
-<li>a table of team members, their github handle, the number of successful pull requests made, and the number of accepted pull requests</li>
-<li>a list with at least 3 tips of how to make working with git/github easier.</li>
+<li>the names of all team members that worked on the document.</li>
+<li>a link to the github repo you were working in.</li>
+<li>code and answers to all of the questions.</li>
+<li>one paragraph commenting on the workflow.</li>
 </ol>
-<p><strong>Note:</strong></p>
-<ol type="a">
-<li>make sure that none of the numbers in the above list are 0, i.e. each team member has to have at least one successful pull request made and accepted. Help out your team member in case they are stuck.</li>
-<li>you only need to make one submission per team.</li>
-</ol>
-<p>Due date: You have time until Monday at 10 pm to submit the (R) markdown file.</p>
+<p>Due date: You have time until Monday at 10 pm to submit the final RMmarkdown file.</p>
 </section>
 
   <!--

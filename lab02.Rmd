@@ -69,24 +69,32 @@ You can load the data into your session using the command below:
 
 ```{r}
 choco <- read.csv("https://ds202-at-isu.github.io/labs/data/choco.csv")
+head(choco)
 ```
 
 # A data exploration
 
-## Question set
+## Question set (team)
 
 Answer each of the following questions using R code to get an answer. When asked for a plot, use the `ggplot2` package. 
 
 1. What is the overall  number of chocolate bars rated?
 2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
+3. Upload your RMarkdown file to the repository
+
+## Question set (individual)
+
+Download the RMarkdown file from the repository.
+
 3. For each of the questions below  provide at least one graphic as a basis for your answer.
     1. How are ratings distributed? Draw a histogram of ratings and describe it. Don't forget to mention outliers, if there are any.
     1. Do ratings depend on the cocoa percentage of a chocolate bar? 
-    2. How do ratings compare across different company locations? Focus on the three locations with the most ratings (`U.S.A., France, Canada`):
-    ```{r}
-    top3 <- filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada"))
+    2. How do ratings compare across different company locations? Focus on the three locations with the most ratings:
+    ```{r, message=FALSE}
+    top3 <- dplyr::filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada"))
     ```
 
+Upload your answers to the repository. Discuss and refine answers as a team.
 
 ## Submission
 
@@ -101,10 +109,3 @@ In Canvas, submit an RMarkdown file with:
 Due date: You have time until Monday at 10 pm to submit the final RMmarkdown file.
 
 
-## Process
-
-Start work together and upload an initial R markdown file with your answers to questions 1 and 2 to your github repository.
-
-Then split the work and work individually on one aspect for 30 mins. 
-
-Upload your work at the time to the repository and discuss.
