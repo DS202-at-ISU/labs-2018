@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DS 202 - lab #3: Ames Housing</title>
+  <title>DS 202 - lab #3: Exploring Happiness</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,7 +58,7 @@
 <body class="shower list">
 
   <header class="caption">
-    <h1>DS 202 - lab #3: Ames Housing</h1>
+    <h1>DS 202 - lab #3: Exploring Happiness</h1>
     <p>Heike Hofmann</p>
   </header>
 
@@ -116,13 +116,17 @@ Lab #3<br> Happiness!
 <p>You can find a codebook with explanations for each of the variables at <a href="https://gssdataexplorer.norc.org/" class="uri">https://gssdataexplorer.norc.org/</a></p>
 </section><section id="part-one-cleaning" class="slide level2">
 <h2>Part one (cleaning)</h2>
-<p>Answer each of the following questions using R code to get an answer. Write a separate code chunk for each variable, once all the data manipulation is done, show the values in a barchart or histogram.</p>
+<p style="font-size:20px">
+Answer each of the following questions using R code to get an answer. Write a separate code chunk for each variable, once all the data manipulation is done, show the values in a barchart or histogram and comment on the plot.
+</p>
 <ol type="1">
 <li>Data cleaning: the values “IAP”, “DK” and “NA” all encode missing values. Replace all of these instances by the value <code>NA</code>.</li>
-<li>Check the type of the variable and cast into the right type.</li>
+<li>Check the type of the variable and cast into the right type (factor variable for categorical variables). For age, change “89 OR OLDER” to 89 and assume the variable should be numeric.</li>
 <li>Bring all levels of factors into a sensible order. For marital you could e.g. order the levels according to average age.</li>
 </ol>
-<p>Save the final data set as RDS file (binary R data) using the command:<code>saveRDS(HAPPY, &quot;newfilename.rds&quot;)</code></p>
+<p style="font-size:20px">
+Save the final data set as RDS file (binary R data) using the command:<code>saveRDS</code>
+</p>
 </section><section id="part-two-exploration" class="slide level2">
 <h2>Part two (exploration)</h2>
 <p><em>Happiness!</em></p>
