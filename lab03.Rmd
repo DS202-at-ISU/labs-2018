@@ -37,10 +37,30 @@ knitr::opts_chunk$set(echo = TRUE)
 ## github repository
 
 1. Log into github 
-2. Pick one team member to create a repository called 'lab3'
+2. Pick one team member to create a repository called 'lab3'. Make sure to initialize the repo with a README file. 
 3. Go into the settings of the repository and add your team members as collaborators
 
+## Cloning the repo
 
+1. Open RStudio, create a new repository using the option "Version Control", choose git as the option
+2. From your github repository copy  the info you get when clicking on the green "Clone or download" button
+3. Paste the info into "Repository URL"
+4. Create the project.
+
+This clones the repository from github. You can now make local changes. 
+
+## A first round of push and pull
+
+Do these changes one at a time in your team. Don't try to do them all at once. 
+
+1. Make a change to the README document.
+2. Go to the 'Git' tab in the top right panel. 
+3. All modified files will have an icon with a white 'M' on blue background.
+4. Select the checkbox and click on 'Commit'. Write a commit message in the top right panel of the new dialog window. 
+5. Hit the green arrow pointing up to 'push' changes to your github repo.
+6. Hit the blue arrow pointing down to 'pull' changes from your github repo.
+
+Commit, and pull, then push often. This will avoid conflicts.
 
 ## Background
 
